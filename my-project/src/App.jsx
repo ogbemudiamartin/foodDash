@@ -1,10 +1,12 @@
-
-
+import Navbar from './components/Navbar/Nav'
+import './App.css'
 function App() {
 
   return (
     <>
-    <div className="text-2xl">Home</div>
+    <div className="flex">
+      <Navbar />
+    </div>
     </>
   )
 }
