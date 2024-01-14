@@ -3,7 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsSearch } from "react-icons/bs";
 import { MdNavigateNext } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa6";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineMail } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
@@ -26,6 +26,7 @@ const Nav = () => {
   const [profileSelect, setProfileSelect] = useState(false)
   const [color, setColor] = useState(false)
   const [searchClick, setSearchClick] = useState(false)
+  const FocusInput = useRef()
 
   const profileClick = () => {
 
@@ -42,14 +43,16 @@ const Nav = () => {
     setIsOpen(false);
   };
 
-  window.document.onClick(setSearchClick(false))
   const searchRequest = () => {
     setSearchClick(!searchClick)
+    FocusInput.current.focus()
   }
+ 
+
   return (
     <div>
       {/* Header Navbar */}
-      <header className="flex items-center p-[.9rem] bg-[#fc8019] gap-[3rem] text-[#fff] w-[100vw]">
+      <header className="flex items-center p-[.9rem] bg-[#fc8019] gap-3 lg:gap-12 text-[#fff] w-[100vw]">
         {/* Head Logo */}
         <a href="#" className="flex text-[1.4rem] gap-1">
           {/* Logo */}
@@ -62,10 +65,14 @@ const Nav = () => {
         {/* Head Logo End */}
 
         <div className="flex flex-row gap-[2.4rem]">
+
           {/* Menu Icon */}
           <div className="icon text-[#fff] lg:block md:hidden block pt-2 text-[2.1rem] cursor-pointer font-extrabold">
             <HiOutlineMenuAlt2 />
           </div>
+          {/* menu icon end */}
+
+
           {/* Navbar Search and Profile */}
           <div className="main flex gap-[1rem] font-serif">
 
@@ -111,17 +118,18 @@ const Nav = () => {
                 {/* Selection End */}
                 {/* Search Input */}
                 <div className="relative flex">
-                  <span className="text-white absolute left-5 top-1 cursor-pointer" onClick={searchRequest}> <BsSearch /></span>
+                  <span className="text-white absolute left-5 top-1 cursor-pointer" onClick={searchRequest} > <BsSearch /></span>
                   <input
                     type="text"
                     placeholder="What do you want to eat today"
+                    ref={FocusInput}
                     className="outline-none md:text-sm lg:text-md border-l-2 border-white pl-12  placeholder:text-white md:w-[28vw] w-[4vw]  h-[3.5vh] bg-transparent "
                   />
 
                 </div>
                 {/* Search End */}
               </div>
-              {searchClick && ( <div className="absolute w-[47.9vw]">
+              {searchClick && ( <div  className="absolute w-[47.9vw]">
                 <div className="p-4 shadow-lg bg-white flex flex-col">
                   <div className=" flex flex-col gap-2  px-[.8rem] ">
                     <h3 className="text-gray-800 font-medium">Recently Searched</h3>
@@ -186,23 +194,23 @@ const Nav = () => {
                 <div onClick={profileClick} className={`absolute  cursor-pointer right-10 top-5 flex items-center gap-2 border-none rounded-md py-[.2rem] px-[.3rem] sm:py-[.5rem] sm:px-[.6rem]  ${backgroundColor}`}>
                   {/* Profile Image */}
                   <div>
-                    <img src="../../../public/me1.png" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10   md:w-[4.2vw] rounded-full border-2 border-white" />
+                    <img src="../../../public/me1.png" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10 lg:w-10 md:w-[4.2vw] rounded-full border-2 border-white" />
                   </div>
                   {/* Profile Name */}
                   <div className="text-bold text-sm  block">Martin</div>
                   {/* Navigation Arrow */}
-                  <MdNavigateNext onClick={profileClick} className="text-[1.4rem] hidden lg:block cursor-pointer" />
+                  <MdNavigateNext onClick={profileClick} className="text-[1.4rem] block cursor-pointer" />
                 </div>
               </div>
 
-              {profileSelect && (<div className="flex flex-col gap-[1rem]  shadow-lg ease-in-out bg-white text-gray-400 text-sm absolute w-[137px] p-[.7rem] top-[4.2rem] right-[2rem] items-start">
-                <a href="" className="flex items-center gap-2 "><CgProfile className="text-[#fc8019] text-xl" /> Profile</a>
-                <a href="" className="flex items-center gap-2 "><MdOutlineMail className="text-[#fc8019] text-xl" /> Inbox</a>
-                <a href="" className="flex items-center gap-2"><FiEdit className="text-[#fc8019] text-xl" /> Edit Profile</a>
-                <a href="" className="flex items-center gap-2"><FaRegMessage className="text-[#fc8019] text-xl" />Message</a>
-                <a href="" className="flex items-center gap-2"><FaRegMessage className="text-[#fc8019] text-xl" /> Notification</a>
-                <a href="" className="flex items-center gap-2"><AiTwotoneSetting className="text-[#fc8019] text-xl" /> Setting</a>
-                <a href="" className="flex items-center gap-2"><IoIosLogOut className="text-[#fc8019] text-xl" /> Logout</a>
+              {profileSelect && (<div className="flex flex-col    shadow-lg ease-in-out bg-white text-gray-400 text-[10px] sm:text-sm absolute w-[137px]  top-20 right-10 items-start">
+                <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 rounded-t-md"><CgProfile className="text-[#fc8019] text-xl" /> Profile</a>
+                <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><MdOutlineMail className="text-[#fc8019] text-xl" /> Inbox</a>
+                <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><FiEdit className="text-[#fc8019] text-xl" /> Edit Profile</a>
+                <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><FaRegMessage className="text-[#fc8019] text-xl" />Message</a>
+                <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><FaRegMessage className="text-[#fc8019] text-xl" /> Notification</a>
+                <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><AiTwotoneSetting className="text-[#fc8019] text-xl" /> Setting</a>
+                <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 rounded-b-md"><IoIosLogOut className="text-[#fc8019] text-xl" /> Logout</a>
               </div>
               )}
             </div>
