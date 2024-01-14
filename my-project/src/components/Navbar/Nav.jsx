@@ -99,7 +99,7 @@ const Nav = () => {
                 </div>
                 {/* Dropdown Menu */}
                 {isOpen && (
-                  <div className="main absolute top-[3rem] left-[19.1rem] z-10 mt-4 origin-top-right text-black rounded-sm border-none bg-white">
+                  <div className="main absolute top-[3rem] left-[.1rem] shadow-lg z-10 mt-4 origin-top-right text-black rounded-sm border-none bg-white">
                     {/* Dropdown Options */}
                     {options.map((option) => (
                       <div key={Math.floor(Math.random() * 1000)} className="w-[230px] text-gray-400 hover:text-orange-500 hover:bg-orange-100">
@@ -194,16 +194,16 @@ const Nav = () => {
                 <div onClick={profileClick} className={`absolute  cursor-pointer right-10 top-5 flex items-center gap-2 border-none rounded-md py-[.2rem] px-[.3rem] sm:py-[.5rem] sm:px-[.6rem]  ${backgroundColor}`}>
                   {/* Profile Image */}
                   <div>
-                    <img src="../../../public/me1.png" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10 lg:w-10 md:w-[4.2vw] rounded-full border-2 border-white" />
+                    <img src="../../../public/pexels-pixabay-34534.jpg" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10 lg:w-10 md:w-[4.2vw] rounded-full border-2 border-white" />
                   </div>
                   {/* Profile Name */}
                   <div className="text-bold text-sm  block">Martin</div>
                   {/* Navigation Arrow */}
-                  <MdNavigateNext onClick={profileClick} className="text-[1.4rem] block cursor-pointer" />
+                  <MdNavigateNext onClick={profileClick} className="text-[1.4rem] block cursor-pointer " />
                 </div>
               </div>
 
-              {profileSelect && (<div className="flex flex-col    shadow-lg ease-in-out bg-white text-gray-400 text-[10px] sm:text-sm absolute w-[137px]  top-20 right-10 items-start">
+              {profileSelect && (<div className="flex flex-col transition ease-in-out delay-150 duration-300  hover:-translate-x-1  shadow-lg ease-in-out bg-white text-gray-400 text-[10px] sm:text-sm absolute w-[137px]  top-20 right-10 items-start">
                 <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 rounded-t-md"><CgProfile className="text-[#fc8019] text-xl" /> Profile</a>
                 <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><MdOutlineMail className="text-[#fc8019] text-xl" /> Inbox</a>
                 <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><FiEdit className="text-[#fc8019] text-xl" /> Edit Profile</a>
