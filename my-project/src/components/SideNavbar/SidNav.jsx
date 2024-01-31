@@ -4,9 +4,7 @@ import { useState } from "react";
 import { CiShop } from "react-icons/ci";
 import { GiDutchBike } from "react-icons/gi";
 import { MdErrorOutline } from "react-icons/md";
-import { NavLink, Outlet } from "react-router-dom";
 
-import Navbar from '../Navbar/Nav'
 const SidNav = () => {
    const [dashBoard, setDashBoard] = useState(false);
    const [arrow, setArrow] = useState(false)
@@ -38,7 +36,7 @@ const SidNav = () => {
    const ChangeDireactionsss = arrow4 ? 'rotate-90' : 'rotate-0';
   return (
    <>
-   <Navbar />
+  
    <div className="flex">
    <div className="bg-[#fc8623]">
         <div className="p-2 relative bg-white rounded-l-[2rem] border-r-[2px]  shadow-lg  w-60 h-screen">
@@ -54,15 +52,15 @@ const SidNav = () => {
                 {dashBoard && (  <ul className="transition ease-in-out duration-300">
                   <li>
                     <div className="flex flex-col pl-10 pt-5 gap-2 text-sm text-[#7b7b7b] text-start">
-                      <NavLink to='Home' className="flex items-center group active:bg-[#fc8019] rounded-md">
+                      <a to='Home' className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] "> Dashboard Light</div>
-                      </NavLink>
+                      </a>
 
-                      <NavLink to='home'  className="flex items-center group active:bg-[#fc8019] rounded-md">
+                      <a to='home'  className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] "> Dashboard Dark</div>
-                      </NavLink>
+                      </a>
 
                       <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
@@ -221,9 +219,7 @@ const SidNav = () => {
             </ul>
         </div>
 
-        <main>
-         <Outlet />
-        </main>
+      
     </div>
    </div>
    

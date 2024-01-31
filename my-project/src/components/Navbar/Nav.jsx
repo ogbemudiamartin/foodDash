@@ -30,6 +30,7 @@ const Nav = () => {
   const [profileSelect, setProfileSelect] = useState(false)
   const [color, setColor] = useState(false)
   const [searchClick, setSearchClick] = useState(false)
+  const [downClick, setDownClick] = useState(false)
   const FocusInput = useRef()
 
   const profileClick = () => {
@@ -38,6 +39,11 @@ const Nav = () => {
     setColor(!color)
 
   }
+  const ClickBoxs1 = () => {
+    setDownClick(!downClick)
+  }
+  const ChangeDireaction = downClick ? 'rotate-90' : 'rotate-0';
+
   // Function to toggle the dropdown menu
   const toggling = () => setIsOpen(!isOpen);
   const backgroundColor = color ? 'bg-[#fff] text-gray-500' : 'bg-[#fc8e32]';
@@ -56,7 +62,7 @@ const Nav = () => {
   return (
     <div>
       {/* Header Navbar */}
-      <header className="flex items-center p-[.9rem] bg-[#fc8019] gap-3 lg:gap-12 text-[#fff] w-[100vw]">
+      <header className="flex items-center p-[.9rem] bg-[#fc8019] gap-3 lg:gap-12 text-[#fff] w-[100%]">
         {/* Head Logo */}
         <a href="#" className="flex text-[1.4rem] gap-1">
           {/* Logo */}
@@ -194,16 +200,16 @@ const Nav = () => {
 
             {/* Profile Start */}
             <div className="block">
-              <div className="profile flex items-center ">
+              <div className="profile flex items-center " onClick={ClickBoxs1}>
                 <div onClick={profileClick} className={`absolute  cursor-pointer right-10 top-4 flex items-center gap-2 border-none rounded-md py-[.2rem] px-[.3rem] sm:py-[.5rem] sm:px-[.6rem] ease-in-out duration-100  ${backgroundColor}`}>
                   {/* Profile Image */}
                   <div>
-                    <img src="../../../public/pexels-pixabay-34534.jpg" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10 lg:w-10 md:w-[4.2vw] rounded-full border-2 border-white" />
+                    <img src="../../../public/pexels-pixabay-34534.jpg" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center bg-cover cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10 lg:w-10 md:w-[4.2vw] rounded-full border-2 border-white" />
                   </div>
                   {/* Profile Name */}
                   <div className="text-bold text-sm  block">Martin</div>
                   {/* Navigation Arrow */}
-                  <MdNavigateNext onClick={profileClick} className="text-[1.4rem] block cursor-pointer " />
+                  <MdNavigateNext  className={`text-[1.4rem] block cursor-pointer ${ChangeDireaction}`} />
                 </div>
               </div>
 
