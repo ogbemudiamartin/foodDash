@@ -1,26 +1,17 @@
-import Navbar from './components/Navbar/Nav'
-import SideNav from './components/SideNavbar/SidNav'
+import SideBar from './components/SideNavbar/SidNav'
+import {createBrowserRouter, createRoutesFromElements, RouterProvider,  Route} from 'react-router-dom'
 import './App.css'
+import Home from './components/Home/Home'
 function App() {
-
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/' element={<SideBar />}>
+        <Route index element={<Home />}/>
+      </Route>
+    )
+  )
   return (
-    <>
-    <div className="">
-      {/* head start*/}
-      <Navbar />
-      {/* head end */}
-
-      {/* body start*/}
-      <div className="flex">
-        <div className="sidNav">
-          <SideNav />
-        </div>
-        <div className="">
-          Main
-        </div>
-      </div>
-    </div>
-    </>
+    <RouterProvider router={router} />
   )
 }
 

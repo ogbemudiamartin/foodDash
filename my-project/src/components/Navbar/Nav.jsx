@@ -1,3 +1,6 @@
+// page import
+
+// icon imports
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsSearch } from "react-icons/bs";
@@ -10,6 +13,7 @@ import { FiEdit } from "react-icons/fi";
 import { FaRegMessage } from "react-icons/fa6";
 import { AiTwotoneSetting } from "react-icons/ai";
 import { IoIosLogOut } from "react-icons/io";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import required modules
@@ -117,7 +121,7 @@ const Nav = () => {
                 )}
                 {/* Selection End */}
                 {/* Search Input */}
-                <div className="relative flex">
+                <div className="relative flex ">
                   <span className="text-white absolute left-5 top-1 cursor-pointer" onClick={searchRequest} > <BsSearch /></span>
                   <input
                     type="text"
@@ -191,7 +195,7 @@ const Nav = () => {
             {/* Profile Start */}
             <div className="block">
               <div className="profile flex items-center ">
-                <div onClick={profileClick} className={`absolute  cursor-pointer right-10 top-5 flex items-center gap-2 border-none rounded-md py-[.2rem] px-[.3rem] sm:py-[.5rem] sm:px-[.6rem]  ${backgroundColor}`}>
+                <div onClick={profileClick} className={`absolute  cursor-pointer right-10 top-4 flex items-center gap-2 border-none rounded-md py-[.2rem] px-[.3rem] sm:py-[.5rem] sm:px-[.6rem] ease-in-out duration-100  ${backgroundColor}`}>
                   {/* Profile Image */}
                   <div>
                     <img src="../../../public/pexels-pixabay-34534.jpg" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10 lg:w-10 md:w-[4.2vw] rounded-full border-2 border-white" />
@@ -203,7 +207,7 @@ const Nav = () => {
                 </div>
               </div>
 
-              {profileSelect && (<div className="flex flex-col transition ease-in-out delay-150 duration-300  hover:-translate-x-1  shadow-lg ease-in-out bg-white text-gray-400 text-[10px] sm:text-sm absolute w-[137px]  top-20 right-10 items-start">
+              {profileSelect && (<div className="flex flex-col ease-in-out duration-100  hover:-translate-x-1  shadow-lg ease-in-out bg-white text-gray-400 text-[10px] sm:text-sm absolute w-[137px]  top-20 right-10 items-start">
                 <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 rounded-t-md"><CgProfile className="text-[#fc8019] text-xl" /> Profile</a>
                 <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><MdOutlineMail className="text-[#fc8019] text-xl" /> Inbox</a>
                 <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><FiEdit className="text-[#fc8019] text-xl" /> Edit Profile</a>
@@ -221,6 +225,7 @@ const Nav = () => {
           </div>
         </div>
       </header>
+     
     </div>
   );
 };
