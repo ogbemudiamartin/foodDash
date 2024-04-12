@@ -6,12 +6,13 @@ export default {
   ],
   theme: {
     extend: {
-      animation:{
-        spin:{
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(160deg)' },
-         }
+    selection:{
+      "display":"none",
+      "sad-blue":{
+        100:"#fff",
+        200:"#000"
       }
+    }
     },
   },
   plugins: [],

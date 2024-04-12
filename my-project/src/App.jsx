@@ -8,11 +8,11 @@ function App() {
     <>
     <div className="flex flex-col">
       <Navbar />
-      <div className="flex flex-row">
+      <div className="flex flex-row w-[100vw]">
        <div className="pr-2">
         <SideBar />
        </div>
-       <div className="pr-2">
+       <div className="">
         <Home />
        </div>
 

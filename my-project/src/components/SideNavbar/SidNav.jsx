@@ -14,13 +14,34 @@ const SidNav = () => {
    const [arrow3, setArrow3] = useState(false)
    const [apps, setApps] = useState(false);
    const [arrow4, setArrow4] = useState(false)
+
+         // dropdown class
+         let  changRes = resturant ? 'hidden' : '';
    const ClickBox = () =>{
       setDashBoard(!dashBoard)
       setArrow(!arrow)
+
+      if(!changRes){
+         changRes = '';
+      }
+      else{
+       changRes = true;
+      }
    }
+
+      // dropdown class
+      let  changClass = dashBoard ? 'hidden' : '';
    const ClickBox2 = () =>{
       setResturant(!resturant)
       setArrow2(!arrow2)
+
+
+      if(!changClass){
+         changClass = '';
+      }
+      else{
+       changClass = true;
+      }
    }
    const ClickBox3 = () =>{
       setDrivers(!drivers)
@@ -34,27 +55,32 @@ const SidNav = () => {
    const ChangeDireactions = arrow2 ? 'rotate-90' : 'rotate-0';
    const ChangeDireactionss = arrow3 ? 'rotate-90' : 'rotate-0';
    const ChangeDireactionsss = arrow4 ? 'rotate-90' : 'rotate-0';
+
+
+
+ 
+
   return (
    <>
   
    <div className="flex">
    <div className="bg-[#fc8623]">
-        <div className="p-2 relative bg-white rounded-l-[2rem] border-r-[2px]  shadow-lg  w-60 h-screen">
-            <p className="text-sm text-[#fc8623] relative font-medium pt-10 pb-6 left-10">Main Menu</p>
+        <div className="p-2 relative bg-white rounded-l-[2rem] border-r-[2px]  shadow-lg  w-[11vw] md:w-60 h-screen">
+            <p className="text-sm text-[#fc8623] relative font-medium pt-10 pb-6 left-10 ">Main Menu</p>
             <ul className="metismenu flex flex-col gap-7">
                {/* dashboard start */}
               <li className="">
                 <div className="flex  text-center pl-4 cursor-pointer " onClick={ClickBox}>
                   <RxDashboard className=" pt-[.1rem]  text-[#9da6b4]  text-[1.4rem] "/>
-                  <div className="transition  ease-in-out  0.5s pr-12  pl-4 text-[#7f7f7f] hover:text-[#fc8623]">Dashboard</div>
-                  <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200  ${ChangeDireaction}`}/>
+                  <div className="transition  ease-in-out  0.5s pr-12  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Dashboard</div>
+                  <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200  hidden md:flex ${ChangeDireaction}`}/>
                 </div>
                 {dashBoard && (  <ul className="transition ease-in-out duration-300">
-                  <li>
+                  <li  className={`transition ease-in-out duration-300 ${changRes}`}>
                     <div className="flex flex-col pl-10 pt-5 gap-2 text-sm text-[#7b7b7b] text-start">
                       <a to='Home' className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
-                         <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] "> Dashboard Light</div>
+                         <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 "> Dashboard Light</div>
                       </a>
 
                       <a to='home'  className="flex items-center group active:bg-[#fc8019] rounded-md">
@@ -105,12 +131,12 @@ const SidNav = () => {
               {/* Resturant */}
              <li>
                 <div onClick={ClickBox2} className="flex  text-center pl-4 cursor-pointer ">
-                  <CiShop className=" pt-[.1rem]  text-[#9da6b4]  text-[1.4rem] "/>
-                  <div className="transition  ease-in-out  0.5s pr-[3rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]">Restaurant</div>
-                  <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200 ${ChangeDireactions}`}/>
+                  <CiShop className=" hover:text-white hoverbg-[#fc8623] rounded-md px  text-[#9da6b4]  text-[1.4rem] "/>
+                  <div className="transition  ease-in-out  0.5s pr-[3rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Restaurant</div>
+                  <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200  hidden md:flex ${ChangeDireactions}`}/>
                 </div>
                {resturant && (
-                  <li className="transition ease-in-out duration-300">
+                  <li className={`transition ease-in-out duration-300 ${changClass}`}>
                 <div className="flex flex-col pl-10 pt-5 gap-2 text-sm text-[#7b7b7b] text-start">
                       <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
@@ -145,12 +171,12 @@ const SidNav = () => {
             {/* drivers start */}
             <li>
                 <div onClick={ClickBox3} className="flex  text-center pl-4 cursor-pointer ">
-                  <GiDutchBike className=" pt-[.1rem]  text-[#9da6b4]  text-[1.4rem] "/>
-                  <div className="transition  ease-in-out  0.5s pr-[4.7rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]">Drivers</div>
-                  <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200 ${ChangeDireactionss}`}/>
+                  <GiDutchBike className=" pt-[.1rem] text-[#9da6b4]  text-[1.4rem]  rounded-md hover:bg-[#fc8623] hover:text-white "/>
+                  <div className="transition  ease-in-out  0.5s pr-[4.7rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Drivers</div>
+                  <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200  hidden md:flex ${ChangeDireactionss}`}/>
                 </div>
                {drivers && (
-                  <li className="transition ease-in-out duration-300">
+                  <li className={`transition ease-in-out duration-300 ${changClass}`}>
                 <div className="flex flex-col pl-10 pt-5 gap-2 text-sm text-[#7b7b7b] text-start">
                       <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
@@ -177,11 +203,11 @@ const SidNav = () => {
             <li className="">
                 <div className="flex  text-center pl-4 cursor-pointer " onClick={ClickBox4}>
                   <MdErrorOutline className=" pt-[.1rem]  text-[#9da6b4]  text-[1.4rem] "/>
-                  <div className="transition  ease-in-out  0.5s pr-[5.3rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]">Apps</div>
-                  <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200  ${ChangeDireactionsss}`}/>
+                  <div className="transition  ease-in-out  0.5s pr-[5.3rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Apps</div>
+                  <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200 hover:text-[]  hidden md:flex  ${ChangeDireactionsss}`}/>
                 </div>
                 {apps && (  <ul className="transition ease-in-out duration-300">
-                  <li>
+                  <li className={`transition ease-in-out duration-300 ${changClass}`}>
                     <div className="flex flex-col pl-10 pt-5 gap-2 text-sm text-[#7b7b7b] text-start">
                       <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
@@ -205,7 +231,7 @@ const SidNav = () => {
 
                       <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
-                         <div className="hover:text-[#fc8019] flex transition  ease-in-out  0.5s  text-center ease-in-out duration-300 pl-4 active:text-[#fff] ">
+                         <div className="hover:text-[#fc8019] flex transition  ease-in-out  0.5s  text-center  duration-300 pl-4 active:text-[#fff] ">
                          <span className="pr-[3rem]">Shop</span>
                            <FaCaretRight className={`text-[#c8c8c8]  text-lg transition ease-in-out duration-200  ${ChangeDireactionsss}`}/>
 

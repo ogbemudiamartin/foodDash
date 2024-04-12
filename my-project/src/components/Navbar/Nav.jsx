@@ -204,7 +204,7 @@ const Nav = () => {
                 <div onClick={profileClick} className={`absolute  cursor-pointer right-10 top-4 flex items-center gap-2 border-none rounded-md py-[.2rem] px-[.3rem] sm:py-[.5rem] sm:px-[.6rem] ease-in-out duration-100  ${backgroundColor}`}>
                   {/* Profile Image */}
                   <div>
-                    <img src="../../../public/pexels-pixabay-34534.jpg" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center bg-cover cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10 lg:w-10 md:w-[4.2vw] rounded-full border-2 border-white" />
+                    <img src="../../../public/pexels-pixabay-34534.jpg" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center  cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10 lg:w-10 md:w-[4.2vw] rounded-full border-2 border-white" />
                   </div>
                   {/* Profile Name */}
                   <div className="text-bold text-sm  block">Martin</div>
@@ -213,7 +213,7 @@ const Nav = () => {
                 </div>
               </div>
 
-              {profileSelect && (<div className="flex flex-col ease-in-out duration-100  hover:-translate-x-1  shadow-lg ease-in-out bg-white text-gray-400 text-[10px] sm:text-sm absolute w-[137px]  top-20 right-10 items-start">
+              {profileSelect && (<div className="flex flex-col ease-in-out duration-100  hover:-translate-x-1  shadow-lg  bg-white text-gray-400 text-[10px] sm:text-sm absolute w-[137px]  top-20 right-10 items-start">
                 <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 rounded-t-md"><CgProfile className="text-[#fc8019] text-xl" /> Profile</a>
                 <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><MdOutlineMail className="text-[#fc8019] text-xl" /> Inbox</a>
                 <a href="" className="flex items-center gap-2 p-[.4rem] sm:p-[.6rem] w-full hover:bg-gray-200 "><FiEdit className="text-[#fc8019] text-xl" /> Edit Profile</a>
