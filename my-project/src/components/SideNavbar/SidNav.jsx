@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CiShop } from "react-icons/ci";
 import { GiDutchBike } from "react-icons/gi";
 import { MdErrorOutline } from "react-icons/md";
+import { Menu } from "antd";
 
 const SidNav = () => {
    const [dashBoard, setDashBoard] = useState(false);
@@ -16,16 +17,18 @@ const SidNav = () => {
    const [arrow4, setArrow4] = useState(false)
 
          // dropdown class
-         let  changRes = resturant ? 'hidden' : '';
+         
    const ClickBox = () =>{
       setDashBoard(!dashBoard)
       setArrow(!arrow)
 
+      let changRes = resturant
+
       if(!changRes){
-         changRes = '';
+         changRes =  setDashBoard(!dashBoard);
       }
       else{
-       changRes = true;
+       changRes = setDashBoard(true);
       }
    }
 
@@ -66,17 +69,17 @@ const SidNav = () => {
    <div className="flex">
    <div className="bg-[#fc8623]">
         <div className="p-2 relative bg-white rounded-l-[2rem] border-r-[2px]  shadow-lg  w-[11vw] md:w-60 h-screen">
-            <p className="text-sm text-[#fc8623] relative font-medium pt-10 pb-6 left-10 ">Main Menu</p>
-            <ul className="metismenu flex flex-col gap-7">
+            <p className="text-sm text-[#fc8623] relative font-medium pt-10 pb-6 pl-10 ">Main Menu</p>
+            <Menu className="metismenu flex flex-col gap-7">
                {/* dashboard start */}
-              <li className="">
+              <Menu.list Key='dashboard ' className="">
                 <div className="flex  text-center pl-4 cursor-pointer " onClick={ClickBox}>
                   <RxDashboard className=" pt-[.1rem]  text-[#9da6b4]  text-[1.4rem] "/>
                   <div className="transition  ease-in-out  0.5s pr-12  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Dashboard</div>
                   <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200  hidden md:flex ${ChangeDireaction}`}/>
                 </div>
                 {dashBoard && (  <ul className="transition ease-in-out duration-300">
-                  <li  className={`transition ease-in-out duration-300 ${changRes}`}>
+                  <li  className={`transition ease-in-out duration-300 `} >
                     <div className="flex flex-col pl-10 pt-5 gap-2 text-sm text-[#7b7b7b] text-start">
                       <a to='Home' className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
@@ -125,11 +128,11 @@ const SidNav = () => {
                      </div>
                    </li>
                 </ul>)}
-              </li>
+              </Menu.list>
               {/* dashboard end */}
 
               {/* Resturant */}
-             <li>
+             <Menu.list Key='resturant'>
                 <div onClick={ClickBox2} className="flex  text-center pl-4 cursor-pointer ">
                   <CiShop className=" hover:text-white hoverbg-[#fc8623] rounded-md px  text-[#9da6b4]  text-[1.4rem] "/>
                   <div className="transition  ease-in-out  0.5s pr-[3rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Restaurant</div>
@@ -165,11 +168,11 @@ const SidNav = () => {
                      </div>
                 </li>
                )}  
-             </li>
+             </Menu.list>
             {/* resturant end */}
 
             {/* drivers start */}
-            <li>
+            <Menu.list Key='drivers'>
                 <div onClick={ClickBox3} className="flex  text-center pl-4 cursor-pointer ">
                   <GiDutchBike className=" pt-[.1rem] text-[#9da6b4]  text-[1.4rem]  rounded-md hover:bg-[#fc8623] hover:text-white "/>
                   <div className="transition  ease-in-out  0.5s pr-[4.7rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Drivers</div>
@@ -195,9 +198,9 @@ const SidNav = () => {
                      </div>
                 </li>
                )}  
-             </li>
+             </Menu.list>
              {/* drivers end */}
-            </ul>
+            </Menu>
             <p className="text-sm text-[#fc8623] relative font-medium pt-10 pb-4 left-10 mt-4">other</p>
             <ul className="metismenu flex flex-col gap-7 ">
             <li className="">
