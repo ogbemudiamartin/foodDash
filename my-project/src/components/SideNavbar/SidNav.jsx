@@ -5,7 +5,7 @@ import { CiShop } from "react-icons/ci";
 import { GiDutchBike } from "react-icons/gi";
 import { MdErrorOutline } from "react-icons/md";
 import { Menu } from "antd";
-
+import {AppstoreOutlined} from '@ant-design/icons'
 const SidNav = () => {
    const [dashBoard, setDashBoard] = useState(false);
    const [arrow, setArrow] = useState(false)
@@ -18,19 +18,19 @@ const SidNav = () => {
 
          // dropdown class
          
-   const ClickBox = () =>{
-      setDashBoard(!dashBoard)
-      setArrow(!arrow)
+   // const ClickBox = () =>{
+   //    setDashBoard(!dashBoard)
+   //    setArrow(!arrow)
 
-      let changRes = resturant
+   //    let changRes = resturant
 
-      if(!changRes){
-         changRes =  setDashBoard(!dashBoard);
-      }
-      else{
-       changRes = setDashBoard(true);
-      }
-   }
+   //    if(!changRes){
+   //       changRes =  setDashBoard(!dashBoard);
+   //    }
+   //    else{
+   //     changRes = setDashBoard(true);
+   //    }
+   // }
 
       // dropdown class
       let  changClass = dashBoard ? 'hidden' : '';
@@ -70,69 +70,78 @@ const SidNav = () => {
    <div className="bg-[#fc8623]">
         <div className="p-2 relative bg-white rounded-l-[2rem] border-r-[2px]  shadow-lg  w-[11vw] md:w-60 h-screen">
             <p className="text-sm text-[#fc8623] relative font-medium pt-10 pb-6 pl-10 ">Main Menu</p>
-            <Menu className="metismenu flex flex-col gap-7">
+            <Menu  className="metismenu flex flex-col gap-7">
                {/* dashboard start */}
-              <Menu.list Key='dashboard ' className="">
-                <div className="flex  text-center pl-4 cursor-pointer " onClick={ClickBox}>
+              <Menu.Item Key='Activity ' className="flex  text-center pl-4 cursor-pointer "  icon={<AppstoreOutlined />}>
+                
                   <RxDashboard className=" pt-[.1rem]  text-[#9da6b4]  text-[1.4rem] "/>
                   <div className="transition  ease-in-out  0.5s pr-12  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Dashboard</div>
                   <FaCaretRight className={`text-[#c8c8c8] text-lg transition ease-in-out duration-200  hidden md:flex ${ChangeDireaction}`}/>
-                </div>
-                {dashBoard && (  <ul className="transition ease-in-out duration-300">
-                  <li  className={`transition ease-in-out duration-300 `} >
-                    <div className="flex flex-col pl-10 pt-5 gap-2 text-sm text-[#7b7b7b] text-start">
-                      <a to='Home' className="flex items-center group active:bg-[#fc8019] rounded-md">
+              
+              </Menu.Item>
+              <Menu.SubMenu key="subtasks" className={`transition ease-in-out duration-300 `}>
+               <Menu.Item Key="tsk-1">
+               <a to='Home' className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 "> Dashboard Light</div>
                       </a>
-
-                      <a to='home'  className="flex items-center group active:bg-[#fc8019] rounded-md">
+               </Menu.Item>
+               <Menu.Item Key="tsk-1">
+               <a to='home'  className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] "> Dashboard Dark</div>
                       </a>
-
-                      <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
+               </Menu.Item>
+               <Menu.Item Key="tsk-1">
+               <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] ">Food Order</div>
                       </a>
-
-                      <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
+               </Menu.Item>
+               <Menu.Item Key="tsk-1">
+               <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] "> Favorite Menu</div>
                       </a>
-
-                      <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
+               </Menu.Item>
+               <Menu.Item Key="tsk-1">
+               <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] ">Message</div>
                       </a>
-
-                      <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
+               </Menu.Item>
+               <Menu.Item Key="tsk-1">
+               <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] ">Order History</div>
                       </a>
-
-                      <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
+               </Menu.Item>
+               <Menu.Item Key="tsk-1">
+               <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] "> Notification</div>
                       </a>
-
-                      <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
+               </Menu.Item>
+               <Menu.Item Key="tsk-1">
+               <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1px] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] ">Bill</div>
                       </a>
-
-                      <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
+               </Menu.Item>
+               <Menu.Item Key="tsk-1">
+               <a href="#" className="flex items-center group active:bg-[#fc8019] rounded-md">
                          <div className=" w-2 group-hover:w-6 ease-in-out duration-300 h-[1] border-2  border-[#fc8019] rounded-md"></div>
                          <div className="hover:text-[#fc8019] ease-in-out duration-300 pl-4 active:text-[#fff] ">Setting</div>
                       </a>
-                     </div>
-                   </li>
-                </ul>)}
-              </Menu.list>
+               </Menu.Item>
+               
+            
+              </Menu.SubMenu>
               {/* dashboard end */}
+            
 
               {/* Resturant */}
-             <Menu.list Key='resturant'>
+             <Menu.Item Key='resturant'>
                 <div onClick={ClickBox2} className="flex  text-center pl-4 cursor-pointer ">
                   <CiShop className=" hover:text-white hoverbg-[#fc8623] rounded-md px  text-[#9da6b4]  text-[1.4rem] "/>
                   <div className="transition  ease-in-out  0.5s pr-[3rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Restaurant</div>
@@ -168,11 +177,11 @@ const SidNav = () => {
                      </div>
                 </li>
                )}  
-             </Menu.list>
+             </Menu.Item>
             {/* resturant end */}
 
             {/* drivers start */}
-            <Menu.list Key='drivers'>
+            <Menu.Item Key='drivers'>
                 <div onClick={ClickBox3} className="flex  text-center pl-4 cursor-pointer ">
                   <GiDutchBike className=" pt-[.1rem] text-[#9da6b4]  text-[1.4rem]  rounded-md hover:bg-[#fc8623] hover:text-white "/>
                   <div className="transition  ease-in-out  0.5s pr-[4.7rem]  pl-4 text-[#7f7f7f] hover:text-[#fc8623]  hidden md:flex">Drivers</div>
@@ -198,7 +207,7 @@ const SidNav = () => {
                      </div>
                 </li>
                )}  
-             </Menu.list>
+             </Menu.Item>
              {/* drivers end */}
             </Menu>
             <p className="text-sm text-[#fc8623] relative font-medium pt-10 pb-4 left-10 mt-4">other</p>
