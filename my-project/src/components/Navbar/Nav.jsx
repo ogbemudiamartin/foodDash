@@ -201,7 +201,7 @@ const Nav = () => {
             {/* Profile Start */}
             <div className="block">
               <div className="profile flex items-center " onClick={ClickBoxs1}>
-                <div onClick={profileClick} className={`absolute  cursor-pointer right-10 top-4 flex items-center gap-2 border-none rounded-md py-[.2rem] px-[.3rem] sm:py-[.5rem] sm:px-[.6rem] ease-in-out duration-100  ${backgroundColor}`}>
+                <div onClick={profileClick} className={`absolute  cursor-pointer right-10 top-4 flex items-center gap-2 border-none rounded-md py-[.2rem] px-[.3rem] sm:py-[.5rem] sm:px-[.6rem] ease-in-out duration-200  ${backgroundColor}`}>
                   {/* Profile Image */}
                   <div>
                     <img src="../../../public/pexels-pixabay-34534.jpg" onClick={profileClick} alt="" className="lg:w- bg-cover bg-center  cursor-pointer lg:h-[6.2vh] md:h-[5.5vh] h-10 w-10 lg:w-10 md:w-[4.2vw] rounded-full border-2 border-white" />
