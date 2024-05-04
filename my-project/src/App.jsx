@@ -4,21 +4,40 @@ import './App.css'
 import Home from './components/Home/Home'
 
 import { Layout } from 'antd';
+import { useState } from 'react';
+import ToggleTHemeButton from './components/ToggleTHemeButton';
+
+const {  Header, Sider } = Layout;
 
 function App() {
-  const {  Sider } = Layout;
+  const [ darkTheme, setDarkTheme] = useState(true)
+  const [collapsed, setCollapsed] = useState(false)
+
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme)
+  }
 //  Header 
   return (
     <>
+     <Layout>
     <div className="flex flex-col">
-      <Navbar />
+      <Layout>
+        <Header>
+        <Navbar collapsed={collapsed} setCollapsed={setCollapsed}/>
+        </Header>
+      </Layout>
       <div className="flex flex-row ">
        <div className="pr-[3rem]">
-        <Layout>
-          <Sider className='text-[#fff]'>
+       
+          <Sider theme={darkTheme ? 'light': `dark` } 
+             collapsed={collapsed}
+             collapsible
+             className='text-[#fff]'>
             <SideBar/>
+            <ToggleTHemeButton darkTheme={darkTheme} 
+            toggleTheme={toggleTheme}/>
           </Sider>
-        </Layout>
+        
        </div>
        <div className="">
         <Home />
@@ -26,6 +45,7 @@ function App() {
 
       </div>
     </div>
+    </Layout>
     </>
     )
 }

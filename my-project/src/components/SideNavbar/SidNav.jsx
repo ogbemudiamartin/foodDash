@@ -6,7 +6,7 @@ const SidNav = () => {
   return (
    <>
   
-   <div className="flex">
+   <div className="flex fixed">
    <div className="bg-[#fc8623]">
         <div className="p-2 relative bg-white rounded-l-[2rem] border-r-[2px]  shadow-lg  w-[11vw] md:w-60 h-screen">
             <p className="text-sm text-[#fc8623] relative font-medium pt-10 pb-6 pl-10 ">Main Menu</p>

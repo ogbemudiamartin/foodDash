@@ -1,7 +1,6 @@
-// page import
-
 // icon imports
-import { HiOutlineMenuAlt2 } from "react-icons/hi";
+
+// import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsSearch } from "react-icons/bs";
 import { MdNavigateNext } from "react-icons/md";
@@ -11,7 +10,7 @@ import { CgProfile } from "react-icons/cg";
 import { MdOutlineMail } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { FaRegMessage } from "react-icons/fa6";
-import { AiTwotoneSetting } from "react-icons/ai";
+import { AiOutlineMenuFold, AiOutlineMenuUnfold, AiTwotoneSetting } from "react-icons/ai";
 import { IoIosLogOut } from "react-icons/io";
 
 // Import Swiper React components
@@ -24,13 +23,18 @@ import 'swiper/css';
 
 const options = ['Nigeria', 'Japan', 'Denmark', 'Algeria', 'Germany', 'China', 'London', 'Spain', 'Norway'];
 
-const Nav = () => {
+import { Button, Layout, theme} from 'antd';
+
+const { Header } = Layout
+
+const Nav = (collapsed, setCollapsed) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [profileSelect, setProfileSelect] = useState(false)
   const [color, setColor] = useState(false)
   const [searchClick, setSearchClick] = useState(false)
   const [downClick, setDownClick] = useState(false)
+  // const [collapsed, setCollapsed] = useState(false)
   const FocusInput = useRef()
 
   const profileClick = () => {
@@ -57,12 +61,15 @@ const Nav = () => {
     setSearchClick(!searchClick)
     FocusInput.current.focus()
   }
- 
+
+  const {
+    token: {colorBgContainer},
+  } = theme.useToken()
 
   return (
-    <div>
+    <Header style={{padding: 0, background: colorBgContainer}}>
       {/* Header Navbar */}
-      <header className="flex items-center p-[.9rem] bg-[#fc8019] gap-3 lg:gap-12 text-[#fff] w-[100%]">
+      <header className="flex items-center p-[.9rem] bg-[#fc8019] gap-3 lg:gap-12 text-[#fff] w-[100%] sticky z-40">
         {/* Head Logo */}
         <a href="#" className="flex text-[1.4rem] gap-1">
           {/* Logo */}
@@ -77,9 +84,12 @@ const Nav = () => {
         <div className="flex flex-row gap-[2.4rem]">
 
           {/* Menu Icon */}
-          <div className="icon text-[#fff] lg:block md:hidden block pt-2 text-[2.1rem] cursor-pointer font-extrabold">
-            <HiOutlineMenuAlt2 />
-          </div>
+          <Button type="text" 
+           onClick={() => setCollapsed(!collapsed)}
+           icon={collapsed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />} 
+           className="icon text-[#fff] lg:block md:hidden block pt-2 text-[2.1rem] cursor-pointer font-extrabold">
+            {/* <HiOutlineMenuAlt2 /> */}
+          </Button>
           {/* menu icon end */}
 
 
@@ -232,7 +242,7 @@ const Nav = () => {
         </div>
       </header>
      
-    </div>
+    </Header>
   );
 };
 
