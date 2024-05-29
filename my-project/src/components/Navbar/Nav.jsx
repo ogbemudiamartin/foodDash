@@ -1,6 +1,5 @@
 // icon imports
-
-import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { HiOutlineMenuAlt2, HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsSearch } from "react-icons/bs";
 import { MdNavigateNext } from "react-icons/md";
@@ -20,19 +19,32 @@ import { Autoplay, Pagination } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 
+import { Button, Layout, theme } from 'antd';
+
+
 
 const options = ['Nigeria', 'Japan', 'Denmark', 'Algeria', 'Germany', 'China', 'London', 'Spain', 'Norway'];
 
 
+const { Header } = Layout
 
-const Nav = () => {
+
+const Nav = (collapsed, setCollapsed) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [profileSelect, setProfileSelect] = useState(false)
   const [color, setColor] = useState(false)
   const [searchClick, setSearchClick] = useState(false)
   const [downClick, setDownClick] = useState(false)
-  // const [collapsed, setCollapsed] = useState(false)
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+
+  const {
+    token: {colorBgContainer},
+  } = theme.useToken();
+  
   const FocusInput = useRef()
 
   const profileClick = () => {
@@ -80,9 +92,18 @@ const Nav = () => {
         <div className="flex flex-row gap-[2.4rem]">
 
           {/* Menu Icon */}
-          <div  className="icon text-[#fff] lg:block md:hidden block pt-2 text-[2.1rem] cursor-pointer font-extrabold">
-            <HiOutlineMenuAlt2 />
-          </div>
+          <Header style={{background: colorBgContainer}}>
+          <Button 
+            type="primary"
+            onClick={toggleCollapsed}
+            className="icon text-[#fff]  lg:block md:hidden h-[2.9rem] block pt-2 text-[2.1rem] cursor-pointer font-extrabold">
+            {/* <HiOutlineMenuAlt2 /> */}
+            {collapsed ? <HiOutlineMenuAlt2 /> : <HiOutlineMenuAlt3 />}
+
+          </Button>
+          </Header>
+        
+    
           {/* menu icon end */}
 
 

@@ -1,43 +1,29 @@
+
+
+
 import SideBar from './components/SideNavbar/SidNav'
 import Navbar from './components/Navbar/Nav'
+
 import './App.css'
 import Home from './components/Home/Home'
-import { Layout, Button } from 'antd';
 import { useState } from 'react';
-import ToggleTHemeButton from './components/ToggleTHemeButton';
-import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { Layout } from 'antd';
 
-const {  Sider, Header } = Layout;
+const { Sider } = Layout
 
 function App() {
-  const [ darkTheme, setDarkTheme] = useState(true)
-  const [collaped, setCollapsed] = useState(false)
-  const toggleTheme = () => {
-    setDarkTheme(!darkTheme)
-  }
+  const [ collapsed, setCollapsed ] = useState(false)
+
 //  Header 
   return (
     <>
-     
-       
-          <Sider theme={darkTheme ? 'light': `dark` } 
-             className='text-[#fff]'>
-            <SideBar/>
-            <ToggleTHemeButton darkTheme={darkTheme} 
-            toggleTheme={toggleTheme}/>
-          </Sider>
-          <Layout>
-            <Header>
-              <Button type="text" icon={collaped ?
-                 <HiOutlineMenuAlt2 /> : <HiOutlineMenuAlt2/>} />
-            </Header>
-          </Layout>
-
-        
-       <div className="">
-        <Home />
-       </div>
-
+    <div className="flex flex-col">
+      <div className=""><Navbar collapsed={collapsed} setCollapsed={setCollapsed}/></div>
+      <div className="flex ">
+        <div className=""><Sider  collapsed={collapsed} collapsible trigger={null}><SideBar /></Sider></div>
+        <div className=""><Home /></div>
+      </div>
+    </div>
     </>
     )
 }
